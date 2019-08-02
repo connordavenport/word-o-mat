@@ -384,7 +384,7 @@ class WordomatWindow:
                     if self.f.has_key(c):
                         g = self.f[c]
                         try:
-                            value = unicode(unichr(int(g.unicode)))
+                            value = str(unichr(int(g.unicode)))
                             result2.append(value)
                         except TypeError: # unicode not set
                             message ("word-o-mat: Glyph \"%s\" was found, but does not appear to have a Unicode value set. It can therefore not be processed, and will be skipped." % c)
@@ -394,7 +394,7 @@ class WordomatWindow:
                         message ("word-o-mat: Sorry, matching by glyph name is only supported when a font is open. Character \"%s\" will be skipped." % c)
             else: # character values
                 result2.append(c)
-        result = [unicode(s) for s in result2 if s]
+        result = [str(s) for s in result2 if s]
         return result
 
 
